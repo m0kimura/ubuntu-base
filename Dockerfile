@@ -12,7 +12,11 @@ ONBUILD RUN \
 
 RUN apt-get update && \
     apt-get install -y sudo software-properties-common wget nano git nodejs npm && \
-    update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10 && \
+    npm cache clean && \
+    npm install n -g && \
+    n stable && \
+    ln -sf /usr/local/bin/node /usr/bin/node && \
+    sudo apt-get purge -y nodejs npm && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
