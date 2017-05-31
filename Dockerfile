@@ -14,7 +14,7 @@ RUN apt-get update && \
     apt-get install -y sudo software-properties-common wget nano git nodejs npm && \
     npm cache clean && \
     npm install n -g && \
-    n stable && \
+    n 7.4.0 && \
     ln -sf /usr/local/bin/node /usr/bin/node && \
     sudo apt-get purge -y nodejs npm && \
     apt-get clean && \
